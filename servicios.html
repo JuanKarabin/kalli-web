@@ -94,7 +94,88 @@
 
     <section id="services" class="services">
       <div class="container animate-on-scroll">
-        <div class="accordion" id="accordionExample">
+        <style>
+          /* Modern Accordion Styles */
+          .modern-accordion .accordion-item {
+            border: none;
+            margin-bottom: 10px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            transition: box-shadow 0.3s;
+            background: #fff;
+          }
+          .modern-accordion .accordion-item:hover {
+            box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+            transform: translateY(-2px) scale(1.01);
+            transition: box-shadow 0.3s, transform 0.2s;
+          }
+          .modern-accordion .accordion-header {
+            background: linear-gradient(90deg, #1c2938 0%, #FF9C91 100%);
+          }
+          .modern-accordion .accordion-button {
+            font-size: 1.18rem;
+            font-weight: 600;
+            color: #fff;
+            background: transparent;
+            border: none;
+            padding: 1.1rem 1.5rem;
+            transition: background 0.2s, color 0.2s;
+            box-shadow: none;
+            outline: none;
+          }
+          .modern-accordion .accordion-button:not(.collapsed) {
+            background: rgba(28,41,56,0.10);
+            color: #fff;
+          }
+          .modern-accordion .accordion-button.collapsed {
+            color: #f3f3f3;
+          }
+          .modern-accordion .accordion-button:focus {
+            box-shadow: none;
+          }
+          .modern-accordion .accordion-body {
+            background: #f8f9fa;
+            color: #1C2938;
+            padding: 1.3rem 2rem 1.7rem 2rem;
+            border-top: 1px solid #e9ecef;
+            font-size: 1.05rem;
+            border-radius: 0 0 16px 16px;
+            animation: fadeIn 0.5s;
+          }
+          .modern-accordion ul {
+            margin-top: 0.7em;
+            margin-bottom: 0.7em;
+            padding-left: 1.3em;
+          }
+          .modern-accordion li {
+            margin-bottom: 0.4em;
+            position: relative;
+            padding-left: 1.2em;
+          }
+          .modern-accordion li:before {
+            content: "✔";
+            color: #FF9C91;
+            position: absolute;
+            left: 0;
+            font-size: 1em;
+            top: 0.1em;
+          }
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px);}
+            to { opacity: 1; transform: none;}
+          }
+          /* Responsive */
+          @media (max-width: 576px) {
+            .modern-accordion .accordion-body {
+              padding: 1rem 1rem 1.3rem 1rem;
+            }
+            .modern-accordion .accordion-button {
+              padding: 0.9rem 1rem;
+            }
+          }
+        </style>
+        <div class="accordion modern-accordion" id="accordionExample" style="width: 70%;margin: 0 auto;">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -103,12 +184,12 @@
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                <p>Contamos con un expertise en Marketing del más alto nivel. Nos especializamos en la comercialización tanto para el entorno digital aplicando las técnicas más novedosas, como para el entorno offline utilizando estrategias marketineras tradicionales.
+                <p>Contamos con un expertise en Marketing del más alto nivel. Nos especializamos en la comercialización tanto para el entorno digital aplicando las técnicas más novedosas, como para el entorno offline utilizando estrategias marketineras tradicionales.</p>
                 <ul>
-                  <li> Funnel de Conversión</li>
-                  <li> Alianzas con influencers</li>
-                  <li> Acciones en el Punto de Venta</li>
-                  <li> Armado de estrategias en fechas especiales (Hot Sale, Black Friday, Día de la madre, Navidad, etc.)</li>
+                  <li>Funnel de Conversión</li>
+                  <li>Alianzas con influencers</li>
+                  <li>Acciones en el Punto de Venta</li>
+                  <li>Armado de estrategias en fechas especiales (Hot Sale, Black Friday, Día de la madre, Navidad, etc.)</li>
                 </ul>
               </div>
             </div>
@@ -123,15 +204,14 @@
               <div class="accordion-body">
                 <p>Este Servicio incluye:</p>
                 <ul>
-                  <li> Creación de Imagen de Marca online</li>
-                  <li> Manejo diario de Redes Sociales (Facebook - Instagram - LinkedIn - Youtube - Messenger - Whatsapp)</li>
-                  <li> Diseño y Creación de contenido en varios formatos</li>
-                  <li> Estrategias de SEO para el crecimiento de perfiles del negocio</li>
-                  <li> Informes de rendimiento mensuales</li>
-                  <li> Trabajo en Equipo con el cliente</li>
+                  <li>Creación de Imagen de Marca online</li>
+                  <li>Manejo diario de Redes Sociales (Facebook - Instagram - LinkedIn - Youtube - Messenger - Whatsapp)</li>
+                  <li>Diseño y Creación de contenido en varios formatos</li>
+                  <li>Estrategias de SEO para el crecimiento de perfiles del negocio</li>
+                  <li>Informes de rendimiento mensuales</li>
+                  <li>Trabajo en Equipo con el cliente</li>
                 </ul>
-
-                ¡Pedí tu Propuesta Personalizada!
+                <strong>¡Pedí tu Propuesta Personalizada!</strong>
               </div>
             </div>
           </div>
@@ -143,20 +223,18 @@
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                <p>Este servicio incluye la creación de Campañas Publicitarias de mínimo 30 días, con el fin de dar a conocer tu negocio mediante anuncios impactantes, personalizados y creativos . Mediante el mismo vas a lograr que más gente conozca tu negocio, visite tu sitio web o e-commerce y se acerque a tu tienda física. Al finalizar, se entregan informes de resultados completos con el análisis del comportamiento de los usuarios.
-                </p>
+                <p>Este servicio incluye la creación de Campañas Publicitarias de mínimo 30 días, con el fin de dar a conocer tu negocio mediante anuncios impactantes, personalizados y creativos. Mediante el mismo vas a lograr que más gente conozca tu negocio, visite tu sitio web o e-commerce y se acerque a tu tienda física. Al finalizar, se entregan informes de resultados completos con el análisis del comportamiento de los usuarios.</p>
                 <p>Realizamos publicidad SEM en las siguientes plataformas digitales:</p>
                 <ul>
-                  <li> Facebook</li>
-                  <li> Instagram</li>
-                  <li> Google</li>
-                  <li> Youtube</li>
+                  <li>Facebook</li>
+                  <li>Instagram</li>
+                  <li>Google</li>
+                  <li>Youtube</li>
                 </ul>
-                Si querés recibir más información acerca de este servicio, no dudes en contactarnos.
+                <span>Si querés recibir más información acerca de este servicio, no dudes en contactarnos.</span>
               </div>
             </div>
           </div>
-
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingFour">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -168,11 +246,11 @@
                 <p>Si querés marcar un diferencial en el contenido que ofreces en los perfiles sociales de tu negocio, este servicio es lo que estás buscando.</p>
                 <p>Mediante el mismo vas a poder ofrecerle a la comunidad de tu marca un valor agregado excepcional y original. Creamos:</p>
                 <ul>
-                  <li> Contenido para Reels</li>
-                  <li> Contenido para Tik Tok</li>
-                  <li> Contenido Audiovisual (Fotografía - Video)</li>
+                  <li>Contenido para Reels</li>
+                  <li>Contenido para Tik Tok</li>
+                  <li>Contenido Audiovisual (Fotografía - Video)</li>
                 </ul>
-                Contamos con herramientas tecnológicas de última generación, bancos de imágenes premium, herramientas de diseño profesionales y equipamiento para producciones.
+                <span>Contamos con herramientas tecnológicas de última generación, bancos de imágenes premium, herramientas de diseño profesionales y equipamiento para producciones.</span>
               </div>
             </div>
           </div>
@@ -184,14 +262,11 @@
             </h2>
             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                <p>¿Sentís que tu negocio se encuentra en un callejón sin salida? ¿Creés que podrías tener una mejor performance online, pero no sabés como hacerlo?
-                </p>
-                <p>Mediante este servicio realizamos un análisis profundo del estado actual de tu negocio en todas las plataformas. Luego, se realiza un informe del mismo y se detectan oportunidades de mejora. Además, se plantean estrategias y cursos de acción para mejorar la situación o para generar la apertura de nuevos caminos.
-                </p>
+                <p>¿Sentís que tu negocio se encuentra en un callejón sin salida? ¿Creés que podrías tener una mejor performance online, pero no sabés como hacerlo?</p>
+                <p>Mediante este servicio realizamos un análisis profundo del estado actual de tu negocio en todas las plataformas. Luego, se realiza un informe del mismo y se detectan oportunidades de mejora. Además, se plantean estrategias y cursos de acción para mejorar la situación o para generar la apertura de nuevos caminos.</p>
               </div>
             </div>
           </div>
-
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingSix">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
@@ -202,11 +277,10 @@
               <div class="accordion-body">
                 <p>¿Necesitás darle vida a ese proyecto que tenés en mente? ¿Querés hacerle un refresh a tu imagen actual?</p>
                 <p>Además de la organización, crear una buena imagen de marca es uno de los pilares de éxito para que tu negocio funcione y llame la atención de tus clientes potenciales.</p>
-                <p>Con este servicio creamos un logo, un slogan, una paleta de colores y tipografia, un tono de comunicación y le damos vida a la esencia de tu marca.</p>
+                <p>Con este servicio creamos un logo, un slogan, una paleta de colores y tipografía, un tono de comunicación y le damos vida a la esencia de tu marca.</p>
               </div>
             </div>
           </div>
-
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingSeven">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
@@ -215,24 +289,45 @@
             </h2>
             <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                <p>¿Tu negocio necesita un sitio web institucional? ¿Querés expandirte y comercializar tus productos mediante una plataforma e-commerce?  </p>
+                <p>¿Tu negocio necesita un sitio web institucional? ¿Querés expandirte y comercializar tus productos mediante una plataforma e-commerce?</p>
                 <p>¡Contratando este servicio podemos ayudarte! Hoy en día se dice que si un negocio no tiene presencia online, no existe. Por eso, es crucial que tu negocio cuente con un sitio web.</p>
                 <p>Nuestro equipo de desarrollo web creará junto con vos un sitio 100% ajustado a las necesidades de tus clientes y de tu negocio. De esta forma, lograrás posicionarte en el mundo e-commerce con una plataforma digital fácil y funcional para quienes la visiten.</p>
               </div>
             </div>
           </div>
+        </div>
+        <br><br>
+        <div class="card text-center te-interesa-card animate-on-scroll">
+          <div class="card-body py-5">
+            <h5 class="card-title mb-3" style="font-size:1.35rem;font-weight:700;color:#1C2938;">
+              ¿Te interesa alguno de nuestros servicios?
+            </h5>
+            <p class="mb-4" style="color:#6c757d;font-size:1.08rem;">
+              ¡Contanos tu idea o necesidad y te enviamos una propuesta a medida!
+            </p>
+            <a href="contacto.html" class="btn btn-gradient px-4 py-2" style="background:linear-gradient(90deg,#FF9C91 0%,#1C2938 100%);color:#fff;font-weight:600;border-radius:30px;font-size:1.1rem;box-shadow:0 2px 8px rgba(255,156,145,0.13);transition:background 0.2s,box-shadow 0.2s;">
+              <i class="bi bi-chat-dots me-2"></i> Pedí tu presupuesto personalizado
+            </a>
+          </div>
+          <style>
+            .te-interesa-card {
+              border: none;
+              border-radius: 18px;
+              background: #fff;
+              transition: box-shadow 0.3s, transform 0.2s;
+            }
+            .te-interesa-card:hover {
+              transform: translateY(-2px) scale(1.01);
+            }
+            .btn-gradient:hover, .btn-gradient:focus {
+              background: linear-gradient(90deg,#1C2938 0%,#FF9C91 100%);
+              color: #fff;
+              box-shadow: 0 4px 18px rgba(28,41,56,0.13);
+              text-decoration: none;
+            }
+          </style>
+        </div>
       </div>
-    </div>
-    <br><br>
-
-    <div class="card text-center te-interesa-card animate-on-scroll">
-      <div class="card-body">
-        <h5 class="card-title">¿Te interesa alguno de nuestros servicios?</h5>
-        <br>
-        <a href="contacto.html" class="btn-enviar-mensaje"><strong>Pedí tu presupuesto personalizado</strong></a>
-      </div>
-    </div>
-
     </section><!-- End Services Section -->
 
     <!-- ======= Services Section VIEJO======= -->
