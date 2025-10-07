@@ -75,7 +75,7 @@
 </header><!-- End Header -->
 
 <!-- ======= Hero Section ======= -->
-<section id="hero" style="max-height: 85vh">
+<section id="hero">
   <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
     <ol class="carousel-indicators" id="hero-carousel-indicators" style="display: none"></ol>
@@ -88,7 +88,36 @@
           <div class="container">
             <h2 class="animate-on-scroll">Servicios de Marketing Digital</h2>
             <p style="font-size: 33px;" class="animate-on-scroll">100% customizados</p>
-            <a href="#about" class="btn-get-started animate-on-scroll scrollto">Saber más</a>
+            <a href="#about" class="btn-get-started animate-on-scroll scrollto" onclick="event.preventDefault(); scrollToAbout();">Saber más</a>
+            <script>
+              function scrollToAbout() {
+              var aboutSection = document.getElementById('about');
+              if (aboutSection) {
+                var y = aboutSection.getBoundingClientRect().top + window.pageYOffset - 60; // Ajusta el 60 según el espacio deseado
+                smoothScrollTo(y, 1200); // 1200ms para un scroll más lento
+              }
+              }
+
+              function smoothScrollTo(targetY, duration) {
+              var startY = window.pageYOffset;
+              var distance = targetY - startY;
+              var startTime = null;
+
+              function animation(currentTime) {
+                if (!startTime) startTime = currentTime;
+                var timeElapsed = currentTime - startTime;
+                var progress = Math.min(timeElapsed / duration, 1);
+                var ease = progress < 0.5
+                ? 2 * progress * progress
+                : -1 + (4 - 2 * progress) * progress;
+                window.scrollTo(0, startY + distance * ease);
+                if (timeElapsed < duration) {
+                requestAnimationFrame(animation);
+                }
+              }
+              requestAnimationFrame(animation);
+              }
+            </script>
           </div>
         </div>
       </div>
@@ -115,32 +144,272 @@
   <section id="about" class="about">
     <div class="container animate-on-scroll">
 
-      <div class="row content">
-        <div class="col-lg-6">
-          <h3>Somos un equipo de profesionales especializados en Marketing Digital, listos para ayudarte a potenciar tu negocio al máximo y transformar tu empresa en una marca.</h3>
+      <div class="row content modern-about align-items-center">
+        
+        <div class="col-lg-8 order-lg-2">
+          <div class="about-features animate-on-scroll">
+            <h2 >¿Qué nos define?</h2>
+            <div class="features-list">
+              <div class="feature-item floating" style="--float-delay: 0s;">
+          <span class="feature-icon"><i class="ri-check-double-line"></i></span>
+          <span class="feature-text">Compromiso</span>
+              </div>
+              <div class="feature-item floating" style="--float-delay: 0.18s;">
+          <span class="feature-icon"><i class="ri-check-double-line"></i></span>
+          <span class="feature-text">Trabajo en Equipo</span>
+              </div>
+              <div class="feature-item floating" style="--float-delay: 0.36s;">
+          <span class="feature-icon"><i class="ri-check-double-line"></i></span>
+          <span class="feature-text">Personalización</span>
+              </div>
+              <div class="feature-item floating" style="--float-delay: 0.54s;">
+          <span class="feature-icon"><i class="ri-check-double-line"></i></span>
+          <span class="feature-text">Creatividad</span>
+              </div>
+            </div>
+            <p class="fst-italic about-desc">
+              Trabajamos de manera comprometida y apasionada para brindarle un servicio excepcional a cada cliente que deposita su confianza en nosotros. Mediante soluciones creativas y trabajo en equipo, potenciamos sus negocios online para alcanzar los objetivos y lograr los mejores resultados posibles. ¿Nuestro diferencial? Creamos propuestas personalizadas 100% adaptadas a cada negocio.
+            </p>
+          </div>
         </div>
-        <div class="col-lg-6 pt-4 pt-lg-0">
-          <h2>
-            ¿Qué nos define?
-          </h2>
-          <ul>
-            <li><i class="ri-check-double-line"></i> Compromiso</li>
-            <li><i class="ri-check-double-line"></i> Trabajo en Equipo</li>
-            <li><i class="ri-check-double-line"></i> Personalización</li>
-            <li><i class="ri-check-double-line"></i> Creatividad</li>
-          </ul>
-          <p class="fst-italic">
-            Trabajamos de manera comprometida y apasionada para brindarle un servicio excepcional a cada cliente que deposita su confianza en nosotros. Mediante soluciones creativas y trabajo en equipo, potenciamos sus negocios online para alcanzar los objetivos y lograr los mejores resultados posibles. ¿Nuestro diferencial? Creamos propuestas personalizadas 100% adaptadas a cada negocio.
-          </p>
+        <div class="col-lg-4 order-lg-1">
+          <div class="about-card animate-on-scroll about-card-bordered">
+            <h3 class="about-title">
+              Somos un equipo de profesionales especializados en 
+              <span class="highlight">Marketing Digital</span>, listos para ayudarte a potenciar tu negocio al máximo y transformar tu empresa en una marca.
+            </h3>
+          </div>
         </div>
-      </div>
+        </div>
+
+        <style>
+        .about.modern-about .row.content {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        @media (min-width: 992px) {
+          .about.modern-about .col-lg-7 {
+            flex: 0 0 58.333333%;
+            max-width: 58.333333%;
+          }
+          .about.modern-about .col-lg-5 {
+            flex: 0 0 41.666667%;
+            max-width: 41.666667%;
+          }
+        }
+        .about-card-bordered {
+          border-left: 5px solid #1C2938;
+          box-shadow: 0 4px 24px rgba(28,41,56,0.10), 0 1.5px 6px rgba(28,41,56,0.06);
+        }
+        @media (max-width: 991.98px) {
+          .about.modern-about .col-lg-7,
+          .about.modern-about .col-lg-5 {
+            flex: 0 0 100%;
+            max-width: 100%;
+          }
+          .about-card-bordered {
+            border-left: none;
+            border-top: 5px solid #1C2938;
+            margin-bottom: 1.2rem;
+          }
+        }
+        .modern-about .features-list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.7rem 1.2rem;
+          margin-bottom: 1.1rem;
+          justify-content: flex-start;
+        }
+        @media (min-width: 768px) {
+          .modern-about .features-list {
+            justify-content: flex-start;
+          }
+        }
+        @media (max-width: 767.98px) {
+          .modern-about .features-list {
+            flex-direction: column;
+            gap: 0.5rem 0;
+          }
+        }
+        /* ...resto de estilos igual... */
+        .about.modern-about {
+          background: linear-gradient(135deg, #fff 60%, #1C2938 100%);
+          border-radius: 22px;
+          box-shadow: 0 8px 40px rgba(28,41,56,0.10), 0 2px 8px rgba(28,41,56,0.06);
+          padding-top: 2.5rem;
+          padding-bottom: 2.5rem;
+          margin-bottom: 2rem;
+        }
+        .modern-about .about-card {
+          background: #fff;
+          border-radius: 18px;
+          box-shadow: 0 4px 24px rgba(255,173,164,0.08), 0 1.5px 6px rgba(255,173,164,0.04);
+          padding: 2.2rem 1.7rem 2rem 1.7rem;
+          transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+          position: relative;
+          overflow: hidden;
+        }
+        .modern-about .about-card:hover {
+          transform: translateY(-8px) scale(1.03) rotate(-1deg);
+          box-shadow: 0 8px 32px rgba(255,173,164,0.18), 0 2px 8px rgba(255,173,164,0.09);
+        }
+        .modern-about .about-title {
+          font-size: 1.45rem;
+          font-weight: 700;
+          color: #222;
+          margin-bottom: 0;
+          line-height: 1.4;
+        }
+        .modern-about .highlight {
+          color: #fff;
+          background: linear-gradient(90deg, #1C2938 80%, #FFADA4 100%);
+          padding: 0 0.22em;
+          border-radius: 6px;
+          transition: background 0.3s, color 0.3s;
+          font-weight: 700;
+          box-shadow: 0 2px 8px rgba(28,41,56,0.08);
+        }
+        .modern-about .about-card:hover .highlight {
+          background: linear-gradient(90deg, #FFADA4 60%, #1C2938 100%);
+        }
+        .modern-about .about-features {
+          background: #fff;
+          border-radius: 18px;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1.5px 6px rgba(0,0,0,0.03);
+          padding: 2rem 1.5rem 1.7rem 1.5rem;
+          transition: box-shadow 0.25s, transform 0.25s;
+          position: relative;
+          overflow: hidden;
+        }
+        .modern-about .about-features:hover {
+          box-shadow: 0 8px 32px rgba(255,173,164,0.13), 0 2px 8px rgba(255,173,164,0.07);
+          transform: translateY(-6px) scale(1.02);
+        }
+        .modern-about .about-subtitle {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: #FFADA4;
+          margin-bottom: 1.1rem;
+          letter-spacing: 0.5px;
+        }
+        .modern-about .feature-item {
+          display: flex;
+          align-items: center;
+          background: #fff6f4;
+          border-radius: 12px;
+          padding: 0.5rem 1.1rem 0.5rem 0.8rem;
+          font-weight: 500;
+          font-size: 1.04rem;
+          color: #FF7E5F;
+          box-shadow: 0 1px 4px rgba(255,173,164,0.07);
+          cursor: pointer;
+          transition: background 0.2s, color 0.2s, transform 0.18s;
+          min-width: 140px;
+          /* Floating animation */
+          will-change: transform;
+        }
+        .modern-about .feature-item:hover {
+          background: #FFADA4;
+          color: #fff;
+          transform: scale(1.07) translateY(-2px);
+        }
+        .modern-about .feature-icon {
+          font-size: 1.3rem;
+          margin-right: 0.6rem;
+          color: #FFADA4;
+          transition: color 0.2s;
+        }
+        .modern-about .feature-item:hover .feature-icon {
+          color: #fff;
+        }
+        .modern-about .about-desc {
+          color: #6c757d;
+          font-size: 1.01rem;
+          margin-top: 0.7rem;
+          margin-bottom: 0;
+          line-height: 1.6;
+          transition: color 0.2s;
+        }
+        /* Floating animation for feature items */
+        .floating {
+          animation: floatY 2.8s ease-in-out infinite;
+          animation-delay: var(--float-delay, 0s);
+        }
+        @keyframes floatY {
+          0%   { transform: translateY(0px);}
+          20%  { transform: translateY(-7px);}
+          40%  { transform: translateY(0px);}
+          60%  { transform: translateY(7px);}
+          80%  { transform: translateY(0px);}
+          100% { transform: translateY(0px);}
+        }
+        @media (max-width: 991.98px) {
+          .about.modern-about {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+          }
+          .modern-about .about-card,
+          .modern-about .about-features {
+            padding: 1.5rem 1rem 1.3rem 1rem;
+            border-radius: 14px;
+          }
+          .modern-about .about-title {
+            font-size: 1.18rem;
+          }
+          .modern-about .about-subtitle {
+            font-size: 1.08rem;
+          }
+          .modern-about .feature-item {
+            font-size: 0.98rem;
+            min-width: 110px;
+            padding: 0.45rem 0.8rem 0.45rem 0.7rem;
+          }
+        }
+        @media (max-width: 767.98px) {
+          .about.modern-about {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+          }
+          .modern-about .about-card,
+          .modern-about .about-features {
+            padding: 1.1rem 0.7rem 1.1rem 0.7rem;
+            border-radius: 10px;
+          }
+          .modern-about .about-title {
+            font-size: 1.05rem;
+          }
+          .modern-about .features-list {
+            flex-direction: column;
+            gap: 0.5rem 0;
+          }
+        }
+        @media (max-width: 575.98px) {
+          .about.modern-about {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+          }
+          .modern-about .about-card,
+          .modern-about .about-features {
+            padding: 0.9rem 0.5rem 0.9rem 0.5rem;
+            border-radius: 7px;
+          }
+          .modern-about .about-title {
+            font-size: 0.98rem;
+          }
+          .modern-about .feature-item {
+            font-size: 0.92rem;
+            min-width: 90px;
+            padding: 0.38rem 0.6rem 0.38rem 0.5rem;
+          }
+        }
+        </style>
 
     </div>
   </section><!-- End About Section -->
 
   <!-- ======= Clients Section ======= -->
   <section id="clients" class="clients section-bg animate-on-scroll">
-    <h1>NUESTROS CLIENTES</h1><!--
+    <h1 style="margin-top: 20px;">NUESTROS CLIENTES</h1><!--
     <div class="container">
 
       <div class="row">
@@ -227,185 +496,293 @@
     </div>
   </section> End Services Section -->
 
-  <!-- ======= Portfolio Section ======= -->
-  <section id="portfolio" class="portfolio animate-on-scroll">
-    <div class="container" style="max-width: 1080px;">
-      <!--
-            <div class="row">
-              <div class="col-lg-12 d-flex justify-content-center">
-                <ul id="portfolio-flters">
-                  <li data-filter="*" class="filter-active">All</li>
-                  <li data-filter=".filter-app">App</li>
-                  <li data-filter=".filter-card">Card</li>
-                  <li data-filter=".filter-web">Web</li>
-                </ul>
+  <!-- ======= Portfolio Section Redesigned ======= -->
+  <section id="portfolio" class="portfolio animate-on-scroll py-5" >
+    <div class="container" style="max-width: 1200px;">
+      <div class="row g-4">
+
+        <!-- Card: Olivia -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="client-card h-100">
+            <div class="client-img-wrap">
+              <img src="assets/img/portfolio/Logo_Olivia.png" alt="Olivia" class="client-img">
+            </div>
+            <div class="client-card-body">
+              <h5>Olivia</h5>
+              <p>Empanadas & Pizzas</p>
+              <div class="client-links">
+                <a href="https://www.instagram.com/olivia_empanadas_y_pizzas" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.oliviapizzas.com.ar" target="_blank" title="Sitio Web"><i class="bi bi-globe2"></i></a>
               </div>
             </div>
-      -->
-            <div class="row portfolio-container">
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                  <img src="assets/img/portfolio/Logo_Olivia.png" class="img-fluid-clientes" alt="" style="height: 335px">
-                  <div class="portfolio-info">
-                    <h4>Olivia</h4>
-                    <p>Empanadas & Pizzas</p>
-                    <div class="portfolio-links">
-                      <a href="https://www.instagram.com/olivia_empanadas_y_pizzas" target="_blank"><i class="bi bi-instagram"></i></a>
-                      <a href="https://www.oliviapizzas.com.ar" target="_blank"><i class="bi bi-globe2"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                  <img src="assets/img/portfolio/almacen.png" class="img-fluid-clientes" alt="" style="height: 335px">
-                  <div class="portfolio-info">
-                    <h4>Almacen de Empanadas</h4>
-                    <p>Empanadas & Pizzas</p>
-                    <div class="portfolio-links">
-                      <a href="https://www.instagram.com/almacenempanadas.ok" target="_blank"><i class="bi bi-instagram"></i></a>
-                      <a href="https://www.almacenempanadas.com.ar" target="_blank"><i class="bi bi-globe2"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                  <img src="assets/img/portfolio/astuprint.png" class="img-fluid-clientes" alt="" style="height: 335px">
-                  <div class="portfolio-info">
-                    <h4>Astuprint</h4>
-                    <p>Fábrica de Rollos Térmicos</p>
-                    <div class="portfolio-links">
-                        <img src="assets/img/google-ads-logo.png" alt="Google Ads" style="height: 22px; vertical-align: middle;margin-right: 6px;  margin-top: 9px;">
-                        <span style="vertical-align: middle; color: rgba(255, 255, 255, 0.7); font-size: 15px;">Servicio de Google Ads</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                  <img src="assets/img/portfolio/sergio.jpg" class="img-fluid-clientes" alt="" style="height: 335px">
-                  <div class="portfolio-info">
-                    <h4>Sergio Hogar</h4>
-                    <p>Artículos para el Hogar</p>
-                    <div class="portfolio-links">
-                      <a href="https://www.instagram.com/sergiohogar.ba" target="_blank"><i class="bi bi-instagram"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                  <img src="assets/img/portfolio/corralon.png" class="img-fluid-clientes" alt="" style="height: 335px">
-                  <div class="portfolio-info">
-                    <h4>Red Sacchi</h4>
-                    <p>Corralón</p>
-                    <div class="portfolio-links">
-                      <a href="https://www.instagram.com/redsacchi/" target="_blank"><i class="bi bi-instagram"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                  <img src="assets/img/portfolio/freelo.jpeg" class="img-fluid-clientes" alt="" style="height: 335px">
-                  <div class="portfolio-info">
-                    <h4>Freelo Argentina</h4>
-                    <p>Consultor financiero</p>
-                    <div class="portfolio-links">
-                      <a href="https://www.instagram.com/freeloarg/" target="_blank" title="Freelo Argentina"><i class="bi bi-instagram"></i></a>
-                      <a href="https://www.freelofinanzas.com.ar" target="_blank"><i class="bi bi-globe2"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                  <img src="assets/img/portfolio/juliana_profitos.png" class="img-fluid-clientes" alt="" style="height: 335px">
-                  <div class="portfolio-info">
-                    <h4>Juliana Profitos Propiedades</h4>
-                    <p>Inmobiliaria</p>
-                    <div class="portfolio-links">
-                      <a href="https://www.instagram.com/jprofitospropiedades/" target="_blank" title="Juliana Profitos Propiedades"><i class="bi bi-instagram"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                  <img src="assets/img/portfolio/vitalTacc.png" class="img-fluid-clientes" alt="" style="height: 335px">
-                  <div class="portfolio-info">
-                    <h4>Vitaltacc</h4>
-                    <p>Alimentos Libres de Gluten</p>
-                    <div class="portfolio-links">
-                      <a href="https://www.instagram.com/megustavitaltacc" target="_blank"><i class="bi bi-instagram"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              
-
-              <!--<div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                  <img src="assets/img/portfolio/1945.png" class="img-fluid-clientes" alt="" style="height: 400px">
-                  <div class="portfolio-info">
-                    <h4>1945 Premium Market</h4>
-                    <p>Premium Market</p>
-                    <div class="portfolio-links">
-                      <a href="https://www.instagram.com/1945markets/" target="_blank"><i class="bi bi-instagram"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>-->
-
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                  <img src="assets/img/portfolio/HDC_arq.png" class="img-fluid-clientes" alt="" style="height: 335px">
-                  <div class="portfolio-info">
-                    <h4>HDC Arquitectura</h4>
-                    <p>Arquitectura y Desarrollos</p>
-                    <div class="portfolio-links">
-                      <a href="https://www.instagram.com/hdcarquitectura/" target="_blank"><i class="bi bi-instagram"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                  <img src="assets/img/portfolio/zona.jpg" class="img-fluid-clientes" alt="" style="height: 335px">
-                  <div class="portfolio-info">
-                    <h4>Zona Electro</h4>
-                    <p>Casa de Electricidad</p>
-                    <div class="portfolio-links">
-                      <a href="https://www.instagram.com/zonaelectroquilmes/" target="_blank" title="Zona Electro"><i class="bi bi-instagram"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              
-
-              
-
-            </div>
-
           </div>
-        </section><!-- End Portfolio Section -->
+        </div>
+
+        <!-- Card: Almacen de Empanadas -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="client-card h-100">
+            <div class="client-img-wrap">
+              <img src="assets/img/portfolio/almacen.png" alt="Almacen de Empanadas" class="client-img">
+            </div>
+            <div class="client-card-body">
+              <h5>Almacen de Empanadas</h5>
+              <p>Empanadas & Pizzas</p>
+              <div class="client-links">
+                <a href="https://www.instagram.com/almacenempanadas.ok" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.almacenempanadas.com.ar" target="_blank" title="Sitio Web"><i class="bi bi-globe2"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Astuprint -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="client-card h-100">
+            <div class="client-img-wrap">
+              <img src="assets/img/portfolio/astuprint.png" alt="Astuprint" class="client-img">
+            </div>
+            <div class="client-card-body">
+              <h5>Astuprint</h5>
+              <p>Fábrica de Rollos Térmicos</p>
+              <div class="client-links">
+                <img src="assets/img/google-ads-logo.png" alt="Google Ads" class="google-ads-icon" title="Google Ads">
+                <span class="google-ads-text">Servicio de Google Ads</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Sergio Hogar -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="client-card h-100">
+            <div class="client-img-wrap">
+              <img src="assets/img/portfolio/sergio.jpg" alt="Sergio Hogar" class="client-img">
+            </div>
+            <div class="client-card-body">
+              <h5>Sergio Hogar</h5>
+              <p>Artículos para el Hogar</p>
+              <div class="client-links">
+                <a href="https://www.instagram.com/sergiohogar.ba" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Red Sacchi -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="client-card h-100">
+            <div class="client-img-wrap">
+              <img src="assets/img/portfolio/corralon.png" alt="Red Sacchi" class="client-img">
+            </div>
+            <div class="client-card-body">
+              <h5>Red Sacchi</h5>
+              <p>Corralón</p>
+              <div class="client-links">
+                <a href="https://www.instagram.com/redsacchi/" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Juliana Profitos Propiedades -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="client-card h-100">
+            <div class="client-img-wrap">
+              <img src="assets/img/portfolio/juliana_profitos.png" alt="Juliana Profitos Propiedades" class="client-img">
+            </div>
+            <div class="client-card-body">
+              <h5>Juliana Profitos Propiedades</h5>
+              <p>Inmobiliaria</p>
+              <div class="client-links">
+                <a href="https://www.instagram.com/jprofitospropiedades/" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Vitaltacc -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="client-card h-100">
+            <div class="client-img-wrap">
+              <img src="assets/img/portfolio/vitalTacc.png" alt="Vitaltacc" class="client-img">
+            </div>
+            <div class="client-card-body">
+              <h5>Vitaltacc</h5>
+              <p>Alimentos Libres de Gluten</p>
+              <div class="client-links">
+                <a href="https://www.instagram.com/megustavitaltacc" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: HDC Arquitectura -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="client-card h-100">
+            <div class="client-img-wrap">
+              <img src="assets/img/portfolio/HDC_arq.png" alt="HDC Arquitectura" class="client-img">
+            </div>
+            <div class="client-card-body">
+              <h5>HDC Arquitectura</h5>
+              <p>Arquitectura y Desarrollos</p>
+              <div class="client-links">
+                <a href="https://www.instagram.com/hdcarquitectura/" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Zona Electro -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="client-card h-100">
+            <div class="client-img-wrap">
+              <img src="assets/img/portfolio/zona.jpg" alt="Zona Electro" class="client-img">
+            </div>
+            <div class="client-card-body">
+              <h5>Zona Electro</h5>
+              <p>Casa de Electricidad</p>
+              <div class="client-links">
+                <a href="https://www.instagram.com/zonaelectroquilmes/" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .client-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1.5px 6px rgba(0,0,0,0.04);
+      overflow: hidden;
+      transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+    }
+    .client-card:hover {
+      transform: translateY(-8px) scale(1.025);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .client-img-wrap {
+      width: 100%;
+      aspect-ratio: 1/1;
+      background: #fff;
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+      overflow: hidden;
+      padding: 0;
+      margin: 0;
+    }
+    .client-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      transition: transform 0.3s;
+      filter: none;
+      background: none;
+      border-radius: 0;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+    }
+    .client-card:hover .client-img {
+      transform: scale(1.07) rotate(-2deg);
+    }
+    .client-card-body {
+      padding: 1.3rem 1.1rem 1.1rem 1.1rem;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .client-card-body h5 {
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-bottom: 0.3rem;
+      color: #222;
+    }
+    .client-card-body p {
+      font-size: 0.98rem;
+      color: #6c757d;
+      margin-bottom: 1rem;
+    }
+    .client-links {
+      display: flex;
+      gap: 0.7rem;
+      align-items: center;
+      justify-content: center;
+      margin-top: auto;
+    }
+    .client-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #f1f1f1;
+      color: #495057;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      font-size: 1.25rem;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      text-decoration: none;
+    }
+    .client-links a:hover {
+      background: #FFADA4;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(255,173,164,0.18);
+      transform: scale(1.12);
+    }
+    .google-ads-icon {
+      height: 22px;
+      margin-right: 7px;
+      margin-top: 2px;
+      vertical-align: middle;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.08));
+    }
+    .google-ads-text {
+      color: #6c757d;
+      font-size: 0.97rem;
+      font-weight: 500;
+      vertical-align: middle;
+    }
+    @media (max-width: 991.98px) {
+      .client-img-wrap {
+        aspect-ratio: 1/1;
+      }
+    }
+    @media (max-width: 767.98px) {
+      .client-card-body {
+        padding: 1rem 0.7rem 1rem 0.7rem;
+      }
+      .client-img-wrap {
+        aspect-ratio: 1/1;
+      }
+    }
+    @media (max-width: 575.98px) {
+      .client-card {
+        border-radius: 12px;
+      }
+      .client-img-wrap {
+        aspect-ratio: 1/1;
+      }
+      .client-card-body h5 {
+        font-size: 1rem;
+      }
+      .client-card-body p {
+        font-size: 0.93rem;
+      }
+    }
+  </style>
 
 </main><!-- End #main -->
 
