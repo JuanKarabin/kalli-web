@@ -28,6 +28,100 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!-- Animaciones personalizadas para el banner hero -->
+  <style>
+    /* Animación de zoom suave para la imagen de fondo */
+    @keyframes heroBackgroundZoom {
+      0% {
+        transform: scale(1.1);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Animación de entrada desde arriba para el título principal */
+    @keyframes heroTitleSlideDown {
+      0% {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Animación de entrada desde abajo para el subtítulo */
+    @keyframes heroSubtitleSlideUp {
+      0% {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Animación de fade in con escala para el botón */
+    @keyframes heroButtonFadeIn {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Aplicar animación al fondo del banner */
+    .hero-banner-animated {
+      animation: heroBackgroundZoom 2s ease-out forwards;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Aplicar animación al título principal */
+    .hero-title-animated {
+      animation: heroTitleSlideDown 1s ease-out 0.3s backwards;
+    }
+
+    /* Aplicar animación al subtítulo */
+    .hero-subtitle-animated {
+      animation: heroSubtitleSlideUp 1s ease-out 0.6s backwards;
+    }
+
+    /* Aplicar animación al botón */
+    .hero-button-animated {
+      animation: heroButtonFadeIn 1s ease-out 0.9s backwards;
+    }
+
+    /* Efecto hover mejorado para el botón */
+    .hero-button-animated:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(255, 173, 164, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    /* Animación de pulso sutil para el título (opcional, se repite) */
+    @keyframes subtlePulse {
+      0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      }
+      50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    .hero-title-animated {
+      animation: heroTitleSlideDown 1s ease-out 0.3s backwards, subtlePulse 3s ease-in-out 1.5s infinite;
+    }
+  </style>
+
   <!-- =======================================================
   * Template Name: Sailor - v4.7.0
   * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
@@ -83,12 +177,12 @@
     <div class="carousel-inner" role="listbox">
 
       <!-- Slide 1 -->
-      <div class="carousel-item active" style="background-image: url(assets/img/slide/portadaPpal.png)">
+      <div class="carousel-item active hero-banner-animated" style="background-image: url(assets/img/slide/portadaPpal.png)">
         <div class="carousel-container">
           <div class="container">
-            <h2 class="animate-on-scroll">Servicios de Marketing Digital</h2>
-            <p style="font-size: 33px;" class="animate-on-scroll">100% customizados</p>
-            <a href="#about" class="btn-get-started animate-on-scroll scrollto" onclick="event.preventDefault(); scrollToAbout();">Saber más</a>
+            <h2 class="animate-on-scroll hero-title-animated">Servicios de Marketing Digital</h2>
+            <p style="font-size: 33px;" class="animate-on-scroll hero-subtitle-animated">100% customizados</p>
+            <a href="#about" class="btn-get-started animate-on-scroll hero-button-animated scrollto" onclick="event.preventDefault(); scrollToAbout();">Saber más</a>
             <script>
               function scrollToAbout() {
               var aboutSection = document.getElementById('about');
